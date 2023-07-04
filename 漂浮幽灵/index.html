@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #1f1f1f;
+    }
+
+    .ghost {
+      display: block;
+      width: 40vh;
+      height: 40vh;
+      background: #f2d5fa;
+      border-radius: 50%;
+      will-change: transform;
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-animation: bob 2s;
+      animation: bob 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .eyes:after,
+    .eyes:before {
+      content: "";
+      display: block;
+      width: 2.5vh;
+      height: 4vh;
+      position: absolute;
+      top: 7vh;
+      left: 12vh;
+      background: #7963e3;
+      border-radius: 50%;
+      will-change: margin;
+      -webkit-animation: mbob 2s;
+      animation: mbob 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .eyes:before {
+      transform: rotate(20deg);
+    }
+
+    .eyes:after {
+      left: auto;
+      right: 12vh;
+      transform: rotate(-20deg);
+    }
+
+    .mouth {
+      display: block;
+      width: 13vh;
+      height: 5.25vh;
+      margin: 15vh auto;
+      margin-left: 20.5vh;
+      position: relative;
+      -webkit-animation: bob 2s;
+      animation: bob 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .mouth__part {
+      display: block;
+      width: 3vh;
+      height: 5vh;
+      border: 0vh solid #7963e3;
+      margin: -0.5vh;
+      float: left;
+      position: relative;
+      background: #7963e3;
+      border-radius: 50%;
+      overflow: hidden;
+      transform: rotate(0deg);
+    }
+
+    .mouth__part:nth-child(2),
+    .mouth__part:nth-child(5) {
+      margin-top: -0.85vh;
+    }
+
+    .mouth__part:nth-child(3),
+    .mouth__part:nth-child(4) {
+      margin-top: -1vh;
+    }
+
+    .bubble {
+      display: block;
+      width: 1vh;
+      height: 1vh;
+      background: #78d9e1;
+      position: absolute;
+      bottom: -0.3vh;
+      left: 0;
+      border-radius: 50%;
+      margin-top: 100px;
+      -webkit-animation: bob-bot 2s;
+      animation: bob-bot 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .bubble.low {
+      bottom: -0.5vh;
+      left: 0.3vh;
+    }
+
+    .bubble:nth-child(2) {
+      display: block;
+      width: 2vh;
+      height: 2vh;
+      bottom: -1vh;
+      left: 0.5vh;
+    }
+
+    .bubble:nth-child(2).low {
+      bottom: -1.5vh;
+    }
+
+    .blood-drips__drip {
+      display: block;
+      width: 1vh;
+      height: 1vh;
+      background: #78d9e1;
+      position: absolute;
+      bottom: 0.2vh;
+      right: 2vh;
+      border-radius: 50%;
+      -webkit-animation: drip 1s ease-in;
+      animation: drip 1s ease-in;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+
+    .arm {
+      display: block;
+      width: 5vh;
+      height: 8vh;
+      position: absolute;
+      top: 16vh;
+      left: 0vh;
+      background: #f2d5fa;
+      border-radius: 50%;
+      transform-origin: center top;
+    }
+
+    .arm:nth-child(1) {
+      transform: rotate(30deg);
+      border-right: 1vh solid #c3b9f3;
+      -webkit-animation: left-arm-wobble 1s ease-in;
+      animation: left-arm-wobble 1s ease-in;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .arm:nth-child(2) {
+      transform: rotate(-30deg);
+      border-left: 1vh solid #c3b9f3;
+      left: auto;
+      right: 0vh;
+      -webkit-animation: right-arm-wobble 1s ease-in;
+      animation: right-arm-wobble 1s ease-in;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    .shadow {
+      display: block;
+      width: 30vh;
+      height: 6vh;
+      background: #fddc4f;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-top: 68vh;
+      -webkit-animation: shadow 2s;
+      animation: shadow 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate-reverse;
+      animation-direction: alternate-reverse;
+    }
+
+    @-webkit-keyframes shadow {
+      from {
+        -webkit-transform: scale(0.5);
+      }
+
+      to {
+        -webkit-transform: scale(1);
+      }
+    }
+
+    @keyframes shadow {
+      from {
+        transform: scale(0.5);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @-webkit-keyframes bob {
+      from {
+        -webkit-transform: translateY(-70%) translateX(-50%);
+      }
+
+      to {
+        -webkit-transform: translateY(-50%) translateX(-50%);
+      }
+    }
+
+    @keyframes bob {
+      from {
+        transform: translateY(-70%) translateX(-50%);
+      }
+
+      to {
+        transform: translateY(-50%) translateX(-50%);
+      }
+    }
+
+    @-webkit-keyframes mbob {
+      from {
+        margin-top: 0;
+      }
+
+      to {
+        margin-top: -1vh;
+      }
+    }
+
+    @keyframes mbob {
+      from {
+        margin-top: 0;
+      }
+
+      to {
+        margin-top: -1vh;
+      }
+    }
+
+    @-webkit-keyframes bob-bot {
+      from {
+        -webkit-transform: translateY(0vh) rotate(0deg);
+      }
+
+      to {
+        -webkit-transform: translateY(-0.5vh) rotate(360deg);
+      }
+    }
+
+    @keyframes bob-bot {
+      from {
+        transform: translateY(0vh) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(-0.5vh) rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes drip {
+      from {
+        -webkit-transform: translateY(0vh);
+      }
+
+      to {
+        -webkit-transform: translateY(5vh);
+      }
+    }
+
+    @keyframes drip {
+      from {
+        transform: translateY(0vh);
+      }
+
+      to {
+        transform: translateY(5vh);
+      }
+    }
+
+    @-webkit-keyframes left-arm-wobble {
+      from {
+        -webkit-transform: rotate(10deg);
+      }
+
+      to {
+        -webkit-transform: rotate(30deg);
+      }
+    }
+
+    @keyframes left-arm-wobble {
+      from {
+        transform: rotate(10deg);
+      }
+
+      to {
+        transform: rotate(30deg);
+      }
+    }
+
+    @-webkit-keyframes right-arm-wobble {
+      from {
+        -webkit-transform: rotate(-10deg);
+      }
+
+      to {
+        -webkit-transform: rotate(-30deg);
+      }
+    }
+
+    @keyframes right-arm-wobble {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(-30deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class='ghost'>
+    <div class='eyes'></div>
+    <div class='mouth'>
+      <div class='mouth__part'>
+        <div class='bubble'></div>
+        <div class='bubble'></div>
+      </div>
+      <div class='mouth__part'>
+        <div class='bubble low'></div>
+      </div>
+      <div class='mouth__part'></div>
+      <div class='mouth__part'></div>
+      <div class='mouth__part'>
+        <div class='bubble low'></div>
+        <div class='bubble low'></div>
+      </div>
+      <div class='mouth__part'>
+        <div class='bubble'></div>
+        <div class='bubble'></div>
+      </div>
+      <div class='blood-drips'>
+        <div class='blood-drips__drip'></div>
+      </div>
+    </div>
+    <div class='arms'>
+      <div class='arm'></div>
+      <div class='arm'></div>
+    </div>
+  </div>
+  <div class='shadow'></div>
+</body>
+
+</html>

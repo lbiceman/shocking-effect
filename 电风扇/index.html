@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>纯CSS3电风扇动画DEMO演示</title>
+  <style>
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+      transform-style: preserve-3d;
+    }
+
+    :root {
+      --blade-speed: 1;
+      --rotation: 25;
+      --fan-speed: 2;
+      --state: running;
+      --bg: #344c65;
+      --shade-one: #f2f2f2;
+      --shade-two: #e6e6e6;
+      --shade-three: #d9d9d9;
+      --shade-four: #ccc;
+      --shade-five: #bfbfbf;
+      --shade-six: #b3b3b3;
+      --shade-seven: #a6a6a6;
+      --shade-eight: #999;
+      --cage-one: rgba(255, 255, 255, 0.4);
+      --cage-two: rgba(255, 255, 255, 0.2);
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      overflow: hidden;
+      transform: scale(0.75);
+    }
+
+    img {
+      height: 20%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 1px);
+      filter: grayscale(1);
+      opacity: 0.5;
+    }
+
+    input[type="radio"] {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+    }
+
+    .kongtiao {
+      position: absolute;
+      top: 0px;
+      left: 20%;
+      margin-left: -200px;
+      width: 400px;
+      height: 500px;
+    }
+
+    .air {
+      position: relative;
+      margin: 0 auto;
+      width: 300px;
+      height: 120px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px 10px 0 0;
+      filter: drop-shadow(0 2px 4px rgb(145, 145, 145));
+    }
+
+    .air::after {
+      content: '';
+      position: absolute;
+      bottom: -21px;
+      left: 0;
+      height: 20px;
+      width: 300px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 0 0 20px 20px;
+    }
+
+    .picture {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 40px;
+      height: 65px;
+      border-radius: 5px;
+    }
+
+    .pattern {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .font {
+      position: absolute;
+      right: 30px;
+      top: 45px;
+      width: 50px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 25px;
+      color: rgb(184, 184, 184);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: rgb(139, 139, 139);
+    }
+
+    .dot {
+      position: absolute;
+      bottom: -8px;
+      right: 12px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: rgb(19, 221, 53);
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .wind {
+      position: relative;
+      top: 30px;
+      width: 250px;
+      height: 60px;
+      margin: 0 auto;
+      opacity: 0;
+      transition: all 1.2s;
+      animation: move 1.5s ease-in-out infinite;
+    }
+
+    @keyframes move {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+    .wind>span {
+      position: absolute;
+      width: 5px;
+      height: 40px;
+      background-color: rgb(206, 206, 206);
+
+    }
+
+    .wind1 {
+      left: 20%;
+      transform: rotate(20deg);
+    }
+
+    .wind2 {
+      left: 50%;
+    }
+
+    .wind3 {
+      left: 80%;
+      transform: rotate(-20deg);
+    }
+
+    .btn {
+      position: relative;
+      top: 50px;
+      margin: 0 auto;
+      width: 100px;
+      height: 150px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn>div {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 12px;
+      line-height: 35px;
+      text-align: center;
+      background-color: rgb(204, 204, 204);
+      box-shadow: 0 2px 4px rgb(151, 151, 151);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn>div:active {
+      background-color: rgb(240, 240, 240);
+    }
+
+    .sun,
+    .snow,
+    .open {
+      background-size: 50% 50%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    .btn .sun {
+      background-image: url(./sun.png);
+      background-color: rgb(255, 130, 13);
+    }
+
+    .btn .snow {
+      background-image: url(./snow.png);
+      background-color: rgb(13, 138, 255);
+    }
+
+    .btn .open {
+      background-image: url(./open.png);
+      background-color: rgb(33, 255, 13);
+    }
+
+    #zero:checked~.scene {
+      --blade-speed: 0;
+      --state: paused;
+    }
+
+    #one:checked~.scene {
+      --blade-speed: 1;
+      --state: running;
+    }
+
+    #one:checked~.scene .fan__control:nth-of-type(2) {
+      transition: transform 0.1s cubic-bezier(0, 1.4, 0.2, 1.4);
+      transform: translate(0, 50%);
+    }
+
+    #two:checked~.scene {
+      --blade-speed: 0.5;
+      --state: running;
+    }
+
+    #two:checked~.scene .fan__control:nth-of-type(3) {
+      transition: transform 0.1s cubic-bezier(0, 1.4, 0.2, 1.4);
+      transform: translate(0, 50%);
+    }
+
+    #three:checked~.scene {
+      --blade-speed: 0.25;
+      --state: running;
+    }
+
+    #three:checked~.scene .fan__control:nth-of-type(4) {
+      transition: transform 0.1s cubic-bezier(0, 1.4, 0.2, 1.4);
+      transform: translate(0, 50%);
+    }
+
+    #four:checked~.scene {
+      --blade-speed: 0.25;
+      --state: running;
+    }
+
+    #four:checked~.scene .fan__head {
+      animation: initial;
+      transform: translate(-20%, -20%) rotateY(-30deg);
+    }
+
+    #four:checked~.scene .fan__control:nth-of-type(5) {
+      transition: transform 0.1s cubic-bezier(0, 1.4, 0.2, 1.4);
+      transform: translate(0, 50%);
+    }
+
+    .cuboid {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .cuboid__side:nth-of-type(1) {
+      height: calc(var(--thickness) * 1vmin);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      transform: translate(0, -50%) rotateX(90deg);
+    }
+
+    .cuboid__side:nth-of-type(2) {
+      height: 100%;
+      width: calc(var(--thickness) * 1vmin);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%) rotateY(90deg);
+    }
+
+    .cuboid__side:nth-of-type(3) {
+      width: 100%;
+      height: calc(var(--thickness) * 1vmin);
+      position: absolute;
+      bottom: 0;
+      transform: translate(0%, 50%) rotateX(90deg);
+    }
+
+    .cuboid__side:nth-of-type(4) {
+      height: 100%;
+      width: calc(var(--thickness) * 1vmin);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%) rotateY(90deg);
+    }
+
+    .cuboid__side:nth-of-type(5) {
+      height: 100%;
+      width: 100%;
+      transform: translate3d(0, 0, calc(var(--thickness) * 0.5vmin));
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .cuboid__side:nth-of-type(6) {
+      height: 100%;
+      width: 100%;
+      transform: translate3d(0, 0, calc(var(--thickness) * -0.5vmin)) rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    :root {
+      --height: 70vmin;
+      --width: 40vmin;
+    }
+
+    label {
+      transition: transform 0.1s;
+      cursor: pointer;
+    }
+
+    label:hover {
+      transform: translate(0, 20%);
+    }
+
+    label:active {
+      transform: translate(0, 40%);
+    }
+
+    .scene {
+      position: absolute;
+      height: var(--width);
+      width: var(--width);
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0vmin) rotateX(-24deg) rotateY(34deg) rotateX(90deg);
+    }
+
+    .fan {
+      height: var(--height);
+      width: var(--width);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotateX(-90deg) rotateX(calc(var(--rotateX, 0) * 1deg)) rotateY(calc(var(--rotateY, 0) * 1deg));
+    }
+
+    .fan__base {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 8%;
+      width: 80%;
+    }
+
+    .fan__controls {
+      height: 6%;
+      width: 50%;
+      position: absolute;
+      bottom: 6%;
+      left: 50%;
+      transform: translate3d(-50%, 0, calc(var(--width) * 0.3));
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 6%;
+    }
+
+    .fan__housing {
+      height: 150%;
+      width: 150%;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      border: 1vmin solid var(--shade-one);
+      background: var(--cage-one);
+      transform: translate3d(-50%, -50%, calc(var(--width) * 0.45));
+    }
+
+    .fan__housing-rear,
+    .fan__housing-front {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 80%;
+      width: 80%;
+      background: var(--cage-two);
+      border-radius: 50%;
+      border: 1vmin solid var(--shade-one);
+    }
+
+    .fan__housing-front {
+      transform: translate3d(-50%, -50%, calc(var(--width) * 0.11));
+    }
+
+    .fan__housing-front:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 35%;
+      width: 35%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--shade-one);
+    }
+
+    .fan__housing-rear {
+      transform: translate3d(-50%, -50%, calc(var(--width) * -0.1));
+      border: 1vmin solid var(--shade-two);
+    }
+
+    .fan__head {
+      height: var(--width);
+      width: var(--width);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate3d(0, 0, calc(var(--width) * -0.25));
+      -webkit-animation: fan calc(var(--fan-speed, 1) * 1s) infinite alternate ease-in-out var(--state);
+      animation: fan calc(var(--fan-speed, 1) * 1s) infinite alternate ease-in-out var(--state);
+    }
+
+    .fan__rotater {
+      top: 50%;
+      width: calc(var(--width) * 0.2);
+      height: calc(var(--width) * 0.2);
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .fan__spine {
+      height: 57.5%;
+      bottom: 8%;
+      width: 20%;
+      position: absolute;
+      left: 50%;
+      transform: translate3d(-50%, 0%, calc(var(--width) * -0.25));
+    }
+
+    .fan__stalk {
+      height: 150%;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      transition: transform 0.2s cubic-bezier(0, 1.2, 0.2, 1.2);
+      width: 25%;
+      position: absolute;
+    }
+
+    .fan__blades {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 16%;
+      width: 16%;
+      transform: translate3d(-50%, -50%, -1px) rotate(0deg);
+      -webkit-animation: rotate calc(var(--blade-speed, 0) * 1s) infinite linear;
+      animation: rotate calc(var(--blade-speed, 0) * 1s) infinite linear;
+    }
+
+    .fan__blade {
+      height: 300%;
+      width: 100%;
+      background: var(--shade-one);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 50% 0;
+      transform: translate(-50%, 0) rotate(calc(var(--rotate, 0) * 1deg));
+    }
+
+    .fan__blade:nth-of-type(1) {
+      --rotate: 0;
+    }
+
+    .fan__blade:nth-of-type(2) {
+      --rotate: calc(360 / 3 * 1);
+    }
+
+    .fan__blade:nth-of-type(3) {
+      --rotate: calc(360 / 3 * 2);
+    }
+
+    .fan__barrel {
+      height: 22.5%;
+      width: 22.5%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, calc(var(--width) * 0.3));
+    }
+
+    .base {
+      --thickness: calc(40 * 0.8);
+    }
+
+    .base div {
+      background: var(--shade-two);
+    }
+
+    .base div:nth-of-type(1) {
+      background: var(--shade-one);
+    }
+
+    .base div:nth-of-type(5) {
+      background: var(--shade-three);
+    }
+
+    .base div:nth-of-type(4) {
+      background: va(--shade-six);
+    }
+
+    .control {
+      --thickness: calc(((40 * 0.5) - ((40 * 0.5) * 0.18)) / 3);
+    }
+
+    .control div {
+      background: var(--shade-five);
+    }
+
+    .control div:nth-of-type(1) {
+      background: var(--shade-three);
+    }
+
+    .control div:nth-of-type(5) {
+      background: var(--shade-six);
+    }
+
+    .control div:nth-of-type(4) {
+      background: va(--shade-eight);
+    }
+
+    .fan__control:nth-of-type(1) .control {
+      --shade-three: #f7d4ba;
+      --shade-five: #f2b78c;
+      --shade-six: #f0a875;
+      --shade-eight: #eb8b47;
+    }
+
+    .fan__control:nth-of-type(5) .control {
+      --shade-three: #f77a5b;
+      --shade-five: #dd512e;
+      --shade-six: #dd562d;
+      --shade-eight: #da330a;
+    }
+
+    .spine {
+      --thickness: calc(40 * 0.2);
+    }
+
+    .spine div {
+      background: var(--shade-three);
+    }
+
+    .spine div:nth-of-type(1) {
+      background: var(--shade-two);
+    }
+
+    .spine div:nth-of-type(5) {
+      background: var(--shade-four);
+    }
+
+    .spine div:nth-of-type(4) {
+      background: va(--shade-seven);
+    }
+
+    .rotater {
+      --thickness: calc(40 * 0.2);
+    }
+
+    .rotater div {
+      background: var(--shade-two);
+    }
+
+    .rotater div:nth-of-type(1) {
+      background: var(--shade-one);
+    }
+
+    .rotater div:nth-of-type(5) {
+      background: var(--shade-three);
+    }
+
+    .rotater div:nth-of-type(4) {
+      background: va(--shade-six);
+    }
+
+    .barrel {
+      --thickness: calc(40 * 0.5);
+    }
+
+    .barrel div {
+      background: var(--shade-three);
+    }
+
+    .barrel div:nth-of-type(1) {
+      background: var(--shade-two);
+    }
+
+    .barrel div:nth-of-type(5) {
+      background: var(--shade-four);
+    }
+
+    .barrel div:nth-of-type(4) {
+      background: va(--shade-seven);
+    }
+
+    .stalk {
+      --thickness: calc(40 * 0.05);
+    }
+
+    .stalk div {
+      background: var(--shade-four);
+    }
+
+    .stalk div:nth-of-type(1) {
+      background: var(--shade-three);
+    }
+
+    .stalk div:nth-of-type(5) {
+      background: var(--shade-five);
+    }
+
+    .stalk div:nth-of-type(4) {
+      background: va(--shade-eight);
+    }
+
+    @-webkit-keyframes fan {
+
+      0%,
+      5% {
+        transform: translate3d(0, 0, calc(var(--width) * -0.25)) rotateY(calc(var(--rotation, 0) * 1deg));
+      }
+
+      95%,
+      100% {
+        transform: translate3d(0, 0, calc(var(--width) * -0.25)) rotateY(calc(var(--rotation, 0) * -1deg));
+      }
+    }
+
+    @keyframes fan {
+
+      0%,
+      5% {
+        transform: translate3d(0, 0, calc(var(--width) * -0.25)) rotateY(calc(var(--rotation, 0) * 1deg));
+      }
+
+      95%,
+      100% {
+        transform: translate3d(0, 0, calc(var(--width) * -0.25)) rotateY(calc(var(--rotation, 0) * -1deg));
+      }
+    }
+
+    @-webkit-keyframes rotate {
+      from {
+        transform: translate3d(-50%, -50%, -1px) rotate(0deg);
+      }
+
+      to {
+        transform: translate3d(-50%, -50%, -1px) rotate(360deg);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: translate3d(-50%, -50%, -1px) rotate(0deg);
+      }
+
+      to {
+        transform: translate3d(-50%, -50%, -1px) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="kongtiao">
+    <div class="air">
+      <img class="pattern" style="display: none;" src="" alt="x">
+      <span class="font">17°C</span>
+      <span class="logo">?</span>
+      <span class="dot"></span>
+    </div>
+    <div class="wind">
+      <span class="wind1"></span>
+      <span class="wind2"></span>
+      <span class="wind3"></span>
+    </div>
+    <div class="btn">
+      <div class="up">▲</div>
+      <div class="down">▼</div>
+      <!-- <div class="sun"></div> -->
+      <!-- <div class="snow"></div> -->
+      <div class="open"></div>
+    </div>
+  </div>
+
+  <input type="radio" name="fan" id="zero" />
+  <input type="radio" name="fan" id="one" checked="true" />
+  <input type="radio" name="fan" id="two" />
+  <input type="radio" name="fan" id="three" />
+  <input type="radio" name="fan" id="four" />
+  <div class="scene">
+    <div class="fan">
+      <div class="fan__base">
+        <div class="cuboid base">
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+        </div>
+      </div>
+      <div class="fan__controls">
+        <label class="fan__control" for="zero">
+          <div class="cuboid control">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </label>
+        <label class="fan__control" for="one">
+          <div class="cuboid control">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </label>
+        <label class="fan__control" for="two">
+          <div class="cuboid control">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </label>
+        <label class="fan__control" for="three">
+          <div class="cuboid control">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </label>
+        <label class="fan__control" for="four">
+          <div class="cuboid control">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </label>
+      </div>
+      <div class="fan__spine">
+        <div class="cuboid spine">
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+        </div>
+      </div>
+      <div class="fan__head">
+        <div class="fan__rotater">
+          <div class="cuboid rotater">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+          <div class="fan__stalk">
+            <div class="cuboid stalk">
+              <div class="cuboid__side"></div>
+              <div class="cuboid__side"></div>
+              <div class="cuboid__side"></div>
+              <div class="cuboid__side"></div>
+              <div class="cuboid__side"></div>
+              <div class="cuboid__side"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fan__barrel">
+          <div class="cuboid barrel">
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+            <div class="cuboid__side"></div>
+          </div>
+        </div>
+        <div class="fan__housing">
+          <div class="fan__housing-rear"></div>
+          <div class="fan__blades">
+            <div class="fan__blade"></div>
+            <div class="fan__blade"></div>
+            <div class="fan__blade"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var open = document.querySelector(".open");
+    var sun = document.querySelector(".sun");
+    var snow = document.querySelector(".snow");
+    var up = document.querySelector(".up");
+    var down = document.querySelector(".down");
+    var pattern = document.querySelector(".pattern");
+    var font = document.querySelector(".font");
+    var dot = document.querySelector(".dot");
+    var wind = document.querySelector(".wind");
+    var music = document.querySelector(".music");
+    var ding = document.querySelector(".ding");
+    var temp = 1;
+    var num = 17;
+
+    open.addEventListener('click', function () {
+      if (temp == 0) {
+        open.style.backgroundColor = 'rgb(33, 255, 13)';
+        pattern.style.opacity = 0;
+        font.style.opacity = 0;
+        dot.style.opacity = 0;
+        wind.style.opacity = 0;
+        temp = 1;
+        music.pause();
+      } else if (temp == 1) {
+        open.style.backgroundColor = 'red';
+        pattern.style.opacity = 1;
+        font.style.opacity = 1;
+        dot.style.opacity = 1;
+        wind.style.opacity = 1;
+        temp = 0;
+        music.play();
+      }
+    })
+    up.addEventListener('click', function () {
+      if (num == 30) return;
+      num++;
+      font.innerHTML = num + "°C";
+      ding.load();
+      ding.play();
+    })
+    down.addEventListener('click', function () {
+      if (num == 16) return;
+      num--;
+      font.innerHTML = num + "°C";
+      ding.load();
+      ding.play();
+    })
+    sun.addEventListener('click', function () {
+      pattern.src = "./sun.png";
+      ding.play();
+      music.load();
+      music.play();
+    })
+    snow.addEventListener('click', function () {
+      pattern.src = "./snow.png";
+      ding.play();
+      music.load();
+      music.play();
+    })
+  </script>
+</body>
+
+</html>

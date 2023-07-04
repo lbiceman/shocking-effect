@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>大富翁游戏</title>
+  <style>
+    /* 游戏界面样式 */
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    /* 地图 */
+    .map {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 房子 */
+    .house {
+      width: 200px;
+      height: 200px;
+      background-color: #f0f0f0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    /* 道路 */
+    .road {
+      width: 150px;
+      height: 150px;
+      background-color: #ccc;
+    }
+
+    /* 小人 */
+    .person {
+      width: 50px;
+      height: 50px;
+      background-color: #3f3f3f;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    /* 物品 */
+    .item {
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    /* 骰子 */
+    .dice {
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 开始游戏按钮 */
+    .start-game {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 游戏结束按钮 */
+    .game-over {
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="map">
+    <div class="house"></div>
+    <div class="person"></div>
+    <div class="road"></div>
+    <div class="item"></div>
+  </div>
+  <div class="dice"></div>
+  <button class="start-game">开始游戏</button>
+  <button class="game-over">游戏结束</button>
+</body>
+
+</html>
