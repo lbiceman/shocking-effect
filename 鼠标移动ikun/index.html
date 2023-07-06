@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 首页样式优化 */
+    body {
+      max-width: 1920px;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    section {
+      width: 400px;
+      height: 500px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-content: space-evenly;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+
+    }
+
+    article {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-content: center;
+
+    }
+
+    article aside {
+      width: 10px;
+      height: 10px;
+      background-color: #dfe0f2;
+      border: 1px solid #a6a7b9;
+      box-sizing: border-box;
+
+    }
+
+
+    .sec1 aside {
+      transition: 0.8s 0.1s linear;
+    }
+
+    .sec2 aside {
+      transition: 0.8s 0.2s linear;
+    }
+
+    .sec3 aside {
+      transition: 0.8s 0.3s linear;
+    }
+
+    .sec4 aside {
+      transition: 0.8s 0.4s linear;
+    }
+
+    .sec5 aside {
+      transition: 0.8s 0.5s linear;
+    }
+
+    .sec6 aside {
+      transition: 0.8s 0.6s linear;
+    }
+
+    .sec7 aside {
+      transition: 0.8s 0.7s linear;
+    }
+
+    .sec8 aside {
+      transition: 0.8s 0.8s linear;
+    }
+
+    .sec9 aside {
+      transition: 0.8s 0.9s linear;
+    }
+
+    .sec10 aside {
+      transition: 0.8s 1s linear;
+    }
+
+    .sec11 aside {
+      transition: 0.8s 1.1s linear;
+    }
+
+    .sec12 aside {
+      transition: 0.8s 1.2s linear;
+    }
+
+    .sec13 aside {
+      transition: 0.8s 1.3s linear;
+    }
+
+    .sec14 aside {
+      transition: 0.8s 1.4s linear;
+    }
+
+    .sec15 aside {
+      transition: 0.8s 1.5s linear;
+    }
+
+    .sec16 aside {
+      transition: 0.8s 1.6s linear;
+    }
+
+    .sec17 aside {
+      transition: 0.8s 1.7s linear;
+    }
+
+    .sec18 aside {
+      transition: 0.8s 1.8s linear;
+    }
+
+    .sec19 aside {
+      transition: 0.8s 1.9s linear;
+    }
+
+    .sec20 aside {
+      transition: 0.8s 2s linear;
+    }
+
+
+
+
+
+    /* hover */
+    section:hover .sec3 aside:nth-child(64),
+    section:hover .sec3 aside:nth-child(65),
+    section:hover .sec3 aside:nth-child(66),
+    section:hover .sec3 aside:nth-child(73),
+    section:hover .sec3 aside:nth-child(74),
+    section:hover .sec3 aside:nth-child(75),
+    section:hover .sec3 aside:nth-child(76),
+    section:hover .sec3 aside:nth-child(77),
+    section:hover .sec3 aside:nth-child(78),
+    section:hover .sec3 aside:nth-child(83),
+    section:hover .sec3 aside:nth-child(84),
+    section:hover .sec3 aside:nth-child(85),
+    section:hover .sec3 aside:nth-child(86),
+    section:hover .sec3 aside:nth-child(87),
+    section:hover .sec3 aside:nth-child(88),
+    section:hover .sec3 aside:nth-child(89),
+    section:hover .sec3 aside:nth-child(92),
+    section:hover .sec3 aside:nth-child(93),
+    section:hover .sec3 aside:nth-child(94),
+    section:hover .sec3 aside:nth-child(95),
+    section:hover .sec3 aside:nth-child(98),
+    section:hover .sec3 aside:nth-child(99) {
+      /* 头发颜色 */
+      background-color: #525055;
+      border: 1px solid #525055;
+      transform: translate3d(20px, 30px, 20px) rotate(720deg);
+    }
+
+    section:hover .sec3 aside:nth-child(96),
+    section:hover .sec3 aside:nth-child(97),
+
+    section:hover .sec7 aside:nth-child(5),
+    section:hover .sec7 aside:nth-child(6),
+    section:hover .sec7 aside:nth-child(7),
+    section:hover .sec7 aside:nth-child(8),
+    section:hover .sec7 aside:nth-child(9),
+    section:hover .sec7 aside:nth-child(16),
+    section:hover .sec7 aside:nth-child(17),
+    section:hover .sec7 aside:nth-child(26) {
+      /* 脸部颜色 */
+      background-color: #b3877c;
+      transform: translate3d(20px, 30px, 20px) rotate(720deg);
+    }
+
+
+    /* 第二行hover */
+    section:hover .sec6 aside:nth-child(7),
+    section:hover .sec6 aside:nth-child(8),
+    section:hover .sec6 aside:nth-child(9),
+    section:hover .sec6 aside:nth-child(16),
+    section:hover .sec6 aside:nth-child(17),
+    section:hover .sec6 aside:nth-child(18),
+    section:hover .sec6 aside:nth-child(19),
+    section:hover .sec6 aside:nth-child(26),
+    section:hover .sec6 aside:nth-child(27),
+    section:hover .sec6 aside:nth-child(28),
+    section:hover .sec6 aside:nth-child(29),
+    section:hover .sec6 aside:nth-child(35),
+    section:hover .sec6 aside:nth-child(36),
+    section:hover .sec6 aside:nth-child(37),
+    section:hover .sec6 aside:nth-child(38),
+    section:hover .sec6 aside:nth-child(39),
+    section:hover .sec6 aside:nth-child(45),
+    section:hover .sec6 aside:nth-child(46),
+    section:hover .sec6 aside:nth-child(47),
+    section:hover .sec6 aside:nth-child(48),
+    section:hover .sec6 aside:nth-child(49),
+    section:hover .sec6 aside:nth-child(50),
+    section:hover .sec6 aside:nth-child(54),
+    section:hover .sec6 aside:nth-child(55),
+    section:hover .sec6 aside:nth-child(56),
+    section:hover .sec6 aside:nth-child(57),
+    section:hover .sec6 aside:nth-child(58),
+    section:hover .sec6 aside:nth-child(59),
+    section:hover .sec6 aside:nth-child(60),
+    section:hover .sec6 aside:nth-child(63),
+    section:hover .sec6 aside:nth-child(64),
+    section:hover .sec6 aside:nth-child(65),
+    section:hover .sec6 aside:nth-child(66),
+    section:hover .sec6 aside:nth-child(67),
+    section:hover .sec6 aside:nth-child(68),
+    section:hover .sec6 aside:nth-child(69),
+    section:hover .sec6 aside:nth-child(70),
+    section:hover .sec6 aside:nth-child(73),
+    section:hover .sec6 aside:nth-child(74),
+    section:hover .sec6 aside:nth-child(75),
+    section:hover .sec6 aside:nth-child(76),
+    section:hover .sec6 aside:nth-child(77),
+    section:hover .sec6 aside:nth-child(78),
+    section:hover .sec6 aside:nth-child(79),
+    section:hover .sec6 aside:nth-child(80),
+    section:hover .sec6 aside:nth-child(83),
+    section:hover .sec6 aside:nth-child(84),
+    section:hover .sec6 aside:nth-child(85),
+    section:hover .sec6 aside:nth-child(86),
+    section:hover .sec6 aside:nth-child(87),
+    section:hover .sec6 aside:nth-child(88),
+    section:hover .sec6 aside:nth-child(89),
+    section:hover .sec6 aside:nth-child(90),
+    section:hover .sec6 aside:nth-child(94),
+    section:hover .sec6 aside:nth-child(95),
+    section:hover .sec6 aside:nth-child(96),
+    section:hover .sec6 aside:nth-child(97),
+    section:hover .sec6 aside:nth-child(98),
+    section:hover .sec6 aside:nth-child(99),
+    section:hover .sec6 aside:nth-child(100),
+
+
+    section:hover .sec7 aside:nth-child(1),
+    section:hover .sec7 aside:nth-child(2),
+    section:hover .sec7 aside:nth-child(3),
+    section:hover .sec7 aside:nth-child(4),
+    section:hover .sec7 aside:nth-child(11),
+    section:hover .sec7 aside:nth-child(12),
+    section:hover .sec7 aside:nth-child(13),
+    section:hover .sec7 aside:nth-child(14),
+    section:hover .sec7 aside:nth-child(15),
+    section:hover .sec7 aside:nth-child(21),
+    section:hover .sec7 aside:nth-child(22),
+    section:hover .sec7 aside:nth-child(23),
+    section:hover .sec7 aside:nth-child(24),
+    section:hover .sec7 aside:nth-child(25),
+    section:hover .sec7 aside:nth-child(32),
+    section:hover .sec7 aside:nth-child(33),
+    section:hover .sec7 aside:nth-child(34),
+    section:hover .sec7 aside:nth-child(35),
+    section:hover .sec7 aside:nth-child(36),
+    section:hover .sec7 aside:nth-child(42),
+    section:hover .sec7 aside:nth-child(43),
+    section:hover .sec7 aside:nth-child(44),
+    section:hover .sec7 aside:nth-child(52),
+    section:hover .sec7 aside:nth-child(56),
+    section:hover .sec7 aside:nth-child(57),
+    section:hover .sec7 aside:nth-child(63),
+    section:hover .sec7 aside:nth-child(64),
+    section:hover .sec7 aside:nth-child(65),
+    section:hover .sec7 aside:nth-child(66),
+    section:hover .sec7 aside:nth-child(67),
+    section:hover .sec7 aside:nth-child(68),
+    section:hover .sec7 aside:nth-child(72),
+    section:hover .sec7 aside:nth-child(73),
+    section:hover .sec7 aside:nth-child(74),
+    section:hover .sec7 aside:nth-child(75),
+    section:hover .sec7 aside:nth-child(76),
+    section:hover .sec7 aside:nth-child(77),
+    section:hover .sec7 aside:nth-child(78),
+    section:hover .sec7 aside:nth-child(82),
+    section:hover .sec7 aside:nth-child(83),
+    section:hover .sec7 aside:nth-child(84),
+    section:hover .sec7 aside:nth-child(85),
+    section:hover .sec7 aside:nth-child(86),
+    section:hover .sec7 aside:nth-child(87),
+    section:hover .sec7 aside:nth-child(88),
+    section:hover .sec7 aside:nth-child(92),
+    section:hover .sec7 aside:nth-child(93),
+    section:hover .sec7 aside:nth-child(94),
+    section:hover .sec7 aside:nth-child(95),
+    section:hover .sec7 aside:nth-child(96),
+    section:hover .sec7 aside:nth-child(97),
+    section:hover .sec7 aside:nth-child(98),
+
+    section:hover .sec10 aside:nth-child(4),
+    section:hover .sec10 aside:nth-child(5),
+    section:hover .sec10 aside:nth-child(6),
+    section:hover .sec10 aside:nth-child(7),
+    section:hover .sec10 aside:nth-child(8),
+    section:hover .sec10 aside:nth-child(9),
+    section:hover .sec10 aside:nth-child(10),
+    section:hover .sec10 aside:nth-child(15),
+    section:hover .sec10 aside:nth-child(16),
+    section:hover .sec10 aside:nth-child(17),
+    section:hover .sec10 aside:nth-child(18),
+    section:hover .sec10 aside:nth-child(19),
+    section:hover .sec10 aside:nth-child(20),
+    section:hover .sec10 aside:nth-child(26),
+    section:hover .sec10 aside:nth-child(27),
+    section:hover .sec10 aside:nth-child(28),
+    section:hover .sec10 aside:nth-child(29),
+    section:hover .sec10 aside:nth-child(30),
+    section:hover .sec10 aside:nth-child(36),
+    section:hover .sec10 aside:nth-child(37),
+    section:hover .sec10 aside:nth-child(38),
+    section:hover .sec10 aside:nth-child(39),
+    section:hover .sec10 aside:nth-child(40),
+
+    section:hover .sec11 aside:nth-child(2),
+    section:hover .sec11 aside:nth-child(3),
+    section:hover .sec11 aside:nth-child(4),
+    section:hover .sec11 aside:nth-child(5),
+    section:hover .sec11 aside:nth-child(6),
+    section:hover .sec11 aside:nth-child(7),
+    section:hover .sec11 aside:nth-child(8),
+    section:hover .sec11 aside:nth-child(12),
+    section:hover .sec11 aside:nth-child(13),
+    section:hover .sec11 aside:nth-child(14),
+    section:hover .sec11 aside:nth-child(15),
+    section:hover .sec11 aside:nth-child(16),
+    section:hover .sec11 aside:nth-child(17),
+    section:hover .sec11 aside:nth-child(18),
+    section:hover .sec11 aside:nth-child(22),
+    section:hover .sec11 aside:nth-child(23),
+    section:hover .sec11 aside:nth-child(24),
+    section:hover .sec11 aside:nth-child(25),
+    section:hover .sec11 aside:nth-child(26),
+    section:hover .sec11 aside:nth-child(27),
+    section:hover .sec11 aside:nth-child(28),
+    section:hover .sec11 aside:nth-child(32),
+    section:hover .sec11 aside:nth-child(33),
+    section:hover .sec11 aside:nth-child(34),
+    section:hover .sec11 aside:nth-child(35),
+    section:hover .sec11 aside:nth-child(36),
+    section:hover .sec11 aside:nth-child(37),
+    section:hover .sec11 aside:nth-child(38),
+    section:hover .sec11 aside:nth-child(44),
+    section:hover .sec11 aside:nth-child(45),
+    section:hover .sec11 aside:nth-child(46),
+    section:hover .sec11 aside:nth-child(47),
+    section:hover .sec11 aside:nth-child(54),
+    section:hover .sec11 aside:nth-child(55),
+
+
+    section:hover .sec17 aside:nth-child(69),
+    section:hover .sec17 aside:nth-child(70),
+    section:hover .sec17 aside:nth-child(79),
+    section:hover .sec17 aside:nth-child(80),
+    section:hover .sec17 aside:nth-child(88),
+    section:hover .sec17 aside:nth-child(89),
+    section:hover .sec17 aside:nth-child(90),
+    section:hover .sec17 aside:nth-child(97),
+    section:hover .sec17 aside:nth-child(98),
+    section:hover .sec17 aside:nth-child(99),
+    section:hover .sec17 aside:nth-child(100),
+
+
+    section:hover .sec18 aside:nth-child(61),
+    section:hover .sec18 aside:nth-child(71),
+    section:hover .sec18 aside:nth-child(81),
+    section:hover .sec18 aside:nth-child(91),
+
+    section:hover .sec20 aside:nth-child(61),
+    section:hover .sec20 aside:nth-child(62),
+    section:hover .sec20 aside:nth-child(63),
+    section:hover .sec20 aside:nth-child(71),
+    section:hover .sec20 aside:nth-child(72),
+    section:hover .sec20 aside:nth-child(73),
+    section:hover .sec20 aside:nth-child(81),
+    section:hover .sec20 aside:nth-child(82),
+    section:hover .sec20 aside:nth-child(83),
+    section:hover .sec20 aside:nth-child(84),
+    section:hover .sec20 aside:nth-child(91),
+    section:hover .sec20 aside:nth-child(92),
+    section:hover .sec20 aside:nth-child(93),
+    section:hover .sec20 aside:nth-child(94),
+    section:hover .sec20 aside:nth-child(95) {
+      /* 上衣和鞋的颜色 */
+      background-color: #121119;
+      border: 1px solid #000;
+      transform: translate3d(20px, 30px, 20px) rotate(720deg);
+    }
+
+    section:hover .sec6 aside:nth-child(10),
+    section:hover .sec6 aside:nth-child(20),
+    section:hover .sec6 aside:nth-child(30),
+    section:hover .sec6 aside:nth-child(40),
+
+    section:hover .sec7 aside:nth-child(41),
+    section:hover .sec7 aside:nth-child(45),
+    section:hover .sec7 aside:nth-child(46),
+    section:hover .sec7 aside:nth-child(51),
+    section:hover .sec7 aside:nth-child(53),
+    section:hover .sec7 aside:nth-child(54),
+    section:hover .sec7 aside:nth-child(55),
+    section:hover .sec7 aside:nth-child(61),
+    section:hover .sec7 aside:nth-child(62),
+    section:hover .sec7 aside:nth-child(71),
+    section:hover .sec7 aside:nth-child(81),
+    section:hover .sec7 aside:nth-child(91),
+
+    section:hover .sec11 aside:nth-child(1),
+    section:hover .sec11 aside:nth-child(11),
+    section:hover .sec11 aside:nth-child(21),
+    section:hover .sec11 aside:nth-child(31) {
+      /* 背带的颜色 */
+      /* background-color: #dbdbd9; */
+      background-color: #fff;
+      transform: translate3d(20px, 30px, 20px) rotate(720deg);
+    }
+
+
+    section:hover .sec10 aside:nth-child(46),
+    section:hover .sec10 aside:nth-child(47),
+    section:hover .sec10 aside:nth-child(48),
+    section:hover .sec10 aside:nth-child(49),
+    section:hover .sec10 aside:nth-child(50),
+    section:hover .sec10 aside:nth-child(55),
+    section:hover .sec10 aside:nth-child(56),
+    section:hover .sec10 aside:nth-child(57),
+    section:hover .sec10 aside:nth-child(58),
+    section:hover .sec10 aside:nth-child(59),
+    section:hover .sec10 aside:nth-child(60),
+    section:hover .sec10 aside:nth-child(65),
+    section:hover .sec10 aside:nth-child(66),
+    section:hover .sec10 aside:nth-child(67),
+    section:hover .sec10 aside:nth-child(68),
+    section:hover .sec10 aside:nth-child(69),
+    section:hover .sec10 aside:nth-child(70),
+    section:hover .sec10 aside:nth-child(75),
+    section:hover .sec10 aside:nth-child(76),
+    section:hover .sec10 aside:nth-child(77),
+    section:hover .sec10 aside:nth-child(78),
+    section:hover .sec10 aside:nth-child(79),
+    section:hover .sec10 aside:nth-child(80),
+    section:hover .sec10 aside:nth-child(84),
+    section:hover .sec10 aside:nth-child(85),
+    section:hover .sec10 aside:nth-child(86),
+    section:hover .sec10 aside:nth-child(87),
+    section:hover .sec10 aside:nth-child(88),
+    section:hover .sec10 aside:nth-child(89),
+    section:hover .sec10 aside:nth-child(90),
+    section:hover .sec10 aside:nth-child(94),
+    section:hover .sec10 aside:nth-child(95),
+    section:hover .sec10 aside:nth-child(96),
+    section:hover .sec10 aside:nth-child(97),
+    section:hover .sec10 aside:nth-child(98),
+    section:hover .sec10 aside:nth-child(99),
+    section:hover .sec10 aside:nth-child(100),
+
+    section:hover .sec11 aside:nth-child(41),
+    section:hover .sec11 aside:nth-child(42),
+    section:hover .sec11 aside:nth-child(43),
+    section:hover .sec11 aside:nth-child(51),
+    section:hover .sec11 aside:nth-child(52),
+    section:hover .sec11 aside:nth-child(53),
+    section:hover .sec11 aside:nth-child(61),
+    section:hover .sec11 aside:nth-child(62),
+    section:hover .sec11 aside:nth-child(63),
+    section:hover .sec11 aside:nth-child(64),
+    section:hover .sec11 aside:nth-child(65),
+    section:hover .sec11 aside:nth-child(71),
+    section:hover .sec11 aside:nth-child(72),
+    section:hover .sec11 aside:nth-child(73),
+    section:hover .sec11 aside:nth-child(74),
+    section:hover .sec11 aside:nth-child(75),
+    section:hover .sec11 aside:nth-child(76),
+    section:hover .sec11 aside:nth-child(81),
+    section:hover .sec11 aside:nth-child(82),
+    section:hover .sec11 aside:nth-child(83),
+    section:hover .sec11 aside:nth-child(84),
+    section:hover .sec11 aside:nth-child(85),
+    section:hover .sec11 aside:nth-child(86),
+    section:hover .sec11 aside:nth-child(91),
+    section:hover .sec11 aside:nth-child(92),
+    section:hover .sec11 aside:nth-child(93),
+    section:hover .sec11 aside:nth-child(94),
+    section:hover .sec11 aside:nth-child(95),
+    section:hover .sec11 aside:nth-child(96),
+    section:hover .sec11 aside:nth-child(97),
+
+    section:hover .sec13 aside:nth-child(80),
+    section:hover .sec13 aside:nth-child(90),
+    section:hover .sec13 aside:nth-child(100),
+
+    section:hover .sec14 aside:nth-child(3),
+    section:hover .sec14 aside:nth-child(4),
+    section:hover .sec14 aside:nth-child(5),
+    section:hover .sec14 aside:nth-child(6),
+    section:hover .sec14 aside:nth-child(7),
+    section:hover .sec14 aside:nth-child(8),
+    section:hover .sec14 aside:nth-child(9),
+    section:hover .sec14 aside:nth-child(10),
+    section:hover .sec14 aside:nth-child(13),
+    section:hover .sec14 aside:nth-child(14),
+    section:hover .sec14 aside:nth-child(15),
+    section:hover .sec14 aside:nth-child(16),
+    section:hover .sec14 aside:nth-child(17),
+    section:hover .sec14 aside:nth-child(18),
+    section:hover .sec14 aside:nth-child(19),
+    section:hover .sec14 aside:nth-child(22),
+    section:hover .sec14 aside:nth-child(23),
+    section:hover .sec14 aside:nth-child(24),
+    section:hover .sec14 aside:nth-child(25),
+    section:hover .sec14 aside:nth-child(26),
+    section:hover .sec14 aside:nth-child(27),
+    section:hover .sec14 aside:nth-child(28),
+    section:hover .sec14 aside:nth-child(31),
+    section:hover .sec14 aside:nth-child(32),
+    section:hover .sec14 aside:nth-child(33),
+    section:hover .sec14 aside:nth-child(34),
+    section:hover .sec14 aside:nth-child(35),
+    section:hover .sec14 aside:nth-child(36),
+    section:hover .sec14 aside:nth-child(37),
+    section:hover .sec14 aside:nth-child(41),
+    section:hover .sec14 aside:nth-child(42),
+    section:hover .sec14 aside:nth-child(43),
+    section:hover .sec14 aside:nth-child(44),
+    section:hover .sec14 aside:nth-child(45),
+    section:hover .sec14 aside:nth-child(46),
+    section:hover .sec14 aside:nth-child(51),
+    section:hover .sec14 aside:nth-child(52),
+    section:hover .sec14 aside:nth-child(53),
+    section:hover .sec14 aside:nth-child(54),
+    section:hover .sec14 aside:nth-child(55),
+    section:hover .sec14 aside:nth-child(61),
+    section:hover .sec14 aside:nth-child(62),
+    section:hover .sec14 aside:nth-child(63),
+    section:hover .sec14 aside:nth-child(64),
+    section:hover .sec14 aside:nth-child(71),
+    section:hover .sec14 aside:nth-child(72),
+    section:hover .sec14 aside:nth-child(73),
+    section:hover .sec14 aside:nth-child(74),
+    section:hover .sec14 aside:nth-child(81),
+    section:hover .sec14 aside:nth-child(82),
+    section:hover .sec14 aside:nth-child(83),
+    section:hover .sec14 aside:nth-child(91),
+    section:hover .sec14 aside:nth-child(92),
+    section:hover .sec14 aside:nth-child(93),
+
+    section:hover .sec15 aside:nth-child(1),
+    section:hover .sec15 aside:nth-child(2),
+    section:hover .sec15 aside:nth-child(3),
+    section:hover .sec15 aside:nth-child(4),
+    section:hover .sec15 aside:nth-child(5),
+    section:hover .sec15 aside:nth-child(6),
+    section:hover .sec15 aside:nth-child(7),
+    section:hover .sec15 aside:nth-child(8),
+    section:hover .sec15 aside:nth-child(13),
+    section:hover .sec15 aside:nth-child(14),
+    section:hover .sec15 aside:nth-child(15),
+    section:hover .sec15 aside:nth-child(16),
+    section:hover .sec15 aside:nth-child(17),
+    section:hover .sec15 aside:nth-child(18),
+    section:hover .sec15 aside:nth-child(23),
+    section:hover .sec15 aside:nth-child(24),
+    section:hover .sec15 aside:nth-child(25),
+    section:hover .sec15 aside:nth-child(26),
+    section:hover .sec15 aside:nth-child(27),
+    section:hover .sec15 aside:nth-child(28),
+    section:hover .sec15 aside:nth-child(34),
+    section:hover .sec15 aside:nth-child(35),
+    section:hover .sec15 aside:nth-child(36),
+    section:hover .sec15 aside:nth-child(37),
+    section:hover .sec15 aside:nth-child(38),
+    section:hover .sec15 aside:nth-child(39),
+    section:hover .sec15 aside:nth-child(45),
+    section:hover .sec15 aside:nth-child(46),
+    section:hover .sec15 aside:nth-child(47),
+    section:hover .sec15 aside:nth-child(48),
+    section:hover .sec15 aside:nth-child(49),
+    section:hover .sec15 aside:nth-child(56),
+    section:hover .sec15 aside:nth-child(57),
+    section:hover .sec15 aside:nth-child(58),
+    section:hover .sec15 aside:nth-child(59),
+    section:hover .sec15 aside:nth-child(60),
+    section:hover .sec15 aside:nth-child(66),
+    section:hover .sec15 aside:nth-child(67),
+    section:hover .sec15 aside:nth-child(68),
+    section:hover .sec15 aside:nth-child(69),
+    section:hover .sec15 aside:nth-child(70),
+    section:hover .sec15 aside:nth-child(77),
+    section:hover .sec15 aside:nth-child(78),
+    section:hover .sec15 aside:nth-child(79),
+    section:hover .sec15 aside:nth-child(80),
+    section:hover .sec15 aside:nth-child(88),
+    section:hover .sec15 aside:nth-child(89),
+    section:hover .sec15 aside:nth-child(90),
+    section:hover .sec15 aside:nth-child(98),
+    section:hover .sec15 aside:nth-child(99),
+    section:hover .sec15 aside:nth-child(100),
+
+
+    section:hover .sec16 aside:nth-child(71),
+    section:hover .sec16 aside:nth-child(81),
+    section:hover .sec16 aside:nth-child(91),
+    section:hover .sec16 aside:nth-child(92),
+
+
+    section:hover .sec17 aside:nth-child(9),
+    section:hover .sec17 aside:nth-child(10),
+    section:hover .sec17 aside:nth-child(19),
+    section:hover .sec17 aside:nth-child(20),
+    section:hover .sec17 aside:nth-child(29),
+    section:hover .sec17 aside:nth-child(30),
+    section:hover .sec17 aside:nth-child(39),
+    section:hover .sec17 aside:nth-child(40),
+    section:hover .sec17 aside:nth-child(49),
+    section:hover .sec17 aside:nth-child(50),
+    section:hover .sec17 aside:nth-child(59),
+    section:hover .sec17 aside:nth-child(60),
+
+
+    section:hover .sec18 aside:nth-child(1),
+    section:hover .sec18 aside:nth-child(2),
+    section:hover .sec18 aside:nth-child(11),
+    section:hover .sec18 aside:nth-child(12),
+    section:hover .sec18 aside:nth-child(21),
+    section:hover .sec18 aside:nth-child(22),
+    section:hover .sec18 aside:nth-child(31),
+    section:hover .sec18 aside:nth-child(41),
+    section:hover .sec18 aside:nth-child(51),
+
+    section:hover .sec19 aside:nth-child(9),
+    section:hover .sec19 aside:nth-child(10),
+    section:hover .sec19 aside:nth-child(19),
+    section:hover .sec19 aside:nth-child(20),
+    section:hover .sec19 aside:nth-child(30),
+    section:hover .sec19 aside:nth-child(40),
+    section:hover .sec19 aside:nth-child(50),
+
+    section:hover .sec20 aside:nth-child(1),
+    section:hover .sec20 aside:nth-child(2),
+    section:hover .sec20 aside:nth-child(11),
+    section:hover .sec20 aside:nth-child(12),
+    section:hover .sec20 aside:nth-child(21),
+    section:hover .sec20 aside:nth-child(22),
+    section:hover .sec20 aside:nth-child(31),
+    section:hover .sec20 aside:nth-child(32),
+    section:hover .sec20 aside:nth-child(41),
+    section:hover .sec20 aside:nth-child(42),
+    section:hover .sec20 aside:nth-child(43),
+    section:hover .sec20 aside:nth-child(51),
+    section:hover .sec20 aside:nth-child(52),
+    section:hover .sec20 aside:nth-child(53) {
+      /* 裤子的颜色 */
+      background-color: #796f7a;
+      transform: translate3d(20px, 30px, 20px) rotate(720deg);
+    }
+
+
+
+    section:hover .sec17 aside,
+    section:hover .sec18 aside,
+    section:hover .sec19 aside,
+    section:hover .sec20 aside {
+      /* 地板的颜色 */
+      background-color: #cbbdba;
+    }
+
+    section:hover .sec17 aside:nth-child(1),
+    section:hover .sec17 aside:nth-child(2),
+    section:hover .sec17 aside:nth-child(11),
+    section:hover .sec17 aside:nth-child(12),
+    section:hover .sec17 aside:nth-child(21),
+    section:hover .sec17 aside:nth-child(22),
+    section:hover .sec17 aside:nth-child(23),
+    section:hover .sec17 aside:nth-child(31),
+    section:hover .sec17 aside:nth-child(32),
+    section:hover .sec17 aside:nth-child(33),
+    section:hover .sec17 aside:nth-child(41),
+    section:hover .sec17 aside:nth-child(42),
+    section:hover .sec17 aside:nth-child(43),
+    section:hover .sec17 aside:nth-child(44),
+    section:hover .sec17 aside:nth-child(51),
+    section:hover .sec17 aside:nth-child(52),
+    section:hover .sec17 aside:nth-child(53),
+    section:hover .sec17 aside:nth-child(54),
+    section:hover .sec17 aside:nth-child(61),
+    section:hover .sec17 aside:nth-child(62),
+    section:hover .sec17 aside:nth-child(63),
+    section:hover .sec17 aside:nth-child(64),
+    section:hover .sec17 aside:nth-child(65),
+    section:hover .sec17 aside:nth-child(71),
+    section:hover .sec17 aside:nth-child(72),
+    section:hover .sec17 aside:nth-child(73),
+    section:hover .sec17 aside:nth-child(74),
+    section:hover .sec17 aside:nth-child(75),
+    section:hover .sec17 aside:nth-child(81),
+    section:hover .sec17 aside:nth-child(82),
+    section:hover .sec17 aside:nth-child(83),
+    section:hover .sec17 aside:nth-child(84),
+    section:hover .sec17 aside:nth-child(85),
+    section:hover .sec17 aside:nth-child(86),
+    section:hover .sec17 aside:nth-child(91),
+    section:hover .sec17 aside:nth-child(92),
+    section:hover .sec17 aside:nth-child(93),
+    section:hover .sec17 aside:nth-child(94),
+    section:hover .sec17 aside:nth-child(95),
+    section:hover .sec17 aside:nth-child(96) {
+      /* 地板移动 */
+      transform: translate(400px);
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <!-- 第1行第1小方块 -->
+    <article class="sec1">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第1行第2小方块 -->
+    <article class="sec2">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第1行第3小方块 -->
+    <article class="sec3">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第1行第4小方块 -->
+    <article class="sec4">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+
+    <!-- 第二行 -->
+    <article class="sec5">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第2小方块 -->
+    <article class="sec6">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第3小方块 -->
+    <article class="sec7">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第4小方块 -->
+    <article class="sec8">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+
+
+    <!-- 第三行 -->
+    <article class="sec9">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第2小方块 -->
+    <article class="sec10">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第3小方块 -->
+    <article class="sec11">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第4小方块 -->
+    <article class="sec12">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+
+    <!-- 第四行 -->
+    <article class="sec13">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第2小方块 -->
+    <article class="sec14">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第3小方块 -->
+    <article class="sec15">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第4小方块 -->
+    <article class="sec16">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+
+
+    <!-- 第五行 -->
+    <article class="sec17">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第2小方块 -->
+    <article class="sec18">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第3小方块 -->
+    <article class="sec19">
+      <!-- 每个小块 -->
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+    <!-- 第4小方块 -->
+    <article class="sec20">
+
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+      <aside></aside>
+    </article>
+  </section>
+</body>
+
+</html>
