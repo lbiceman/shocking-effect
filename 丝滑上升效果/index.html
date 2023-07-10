@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    p {
+      height: 10em;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 10em;
+      font-size: 1.5em;
+      margin: 2em 1em;
+    }
+
+    p.div1 {
+      background: pink;
+      color: #00abee;
+    }
+
+    p.div2 {
+      background: skyblue;
+      color: #000;
+    }
+
+    .come-in {
+      opacity: 1;
+      transform: translateY(150px);
+      animation: come-in 1s ease forwards;
+    }
+
+    .come-in:nth-child(odd) {
+      animation-duration: 1s;
+    }
+
+    .already-visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: none;
+    }
+
+    @keyframes come-in {
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .opaque {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="div1"><a href='javascript:void(0)'>1</a></p>
+  <p class="div2"><a href='javascript:void(0)'>2</a></p>
+  <p class="div1"><a href='javascript:void(0)'>3</a></p>
+  <p class="div2"><a href='javascript:void(0)'>4</a></p>
+  <p class="div1"><a href='javascript:void(0)'>5</a></p>
+  <p class="div2"><a href='javascript:void(0)'>6</a></p>
+  <p class="div1"><a href='javascript:void(0)'>7</a></p>
+  <p class="div2"><a href='javascript:void(0)'>8</a></p>
+  <p class="div1"><a href='javascript:void(0)'>9</a></p>
+  <p class="div2"><a href='javascript:void(0)'>10</a></p>
+  <p class="div1"><a href='javascript:void(0)'>11</a></p>
+  <p class="div2"><a href='javascript:void(0)'>12</a></p>
+  <p class="div1"><a href='javascript:void(0)'>13</a></p>
+  <p class="div2"><a href='javascript:void(0)'>14</a></p>
+  <p class="div1"><a href='javascript:void(0)'>15</a></p>
+  <script>
+    (() => {
+
+      //辅助函数
+      function $(ele) {
+        return document.querySelectorAll(ele);
+      }
+      /**
+        * 判断浏览器是否支持IntersectionObserver
+        * @returns  返回当前浏览器对于IntersectionObserver的支持情况，支持返回true，反之false;
+        */
+      function isSupportIntersectionObserver() {
+        return (typeof IntersectionObserver).toLowerCase() === "function";
+      }
+      //核心函数
+      window.addEventListener("load", function () {
+        if (isSupportIntersectionObserver()) {
+          hideAll();
+          observerFunc();
+        } else {
+          win.alert("不支持");
+        }
+      });
+      //  取到一个数组
+      var allDIv = $('p');
+      function hideAll() {
+        allDIv.forEach((e) => {
+          //  透明度设为0
+          e.classList.add('opaque');
+          judge(e);
+        });
+
+      }
+      function judge(ele) {
+        var h = ele.getBoundingClientRect().top;
+        if (h < window.innerHeight) {
+          ele.classList.add('already-visible');
+        }
+      }
+      function observerFunc() {
+        var observer = new IntersectionObserver(callback);
+        var allDIv = $('p');
+        //绑定
+        allDIv.forEach((e) => {
+          observer.observe(e);
+        });
+
+        function callback(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              var divE = entry.target;
+              divE.classList.remove("opaque");
+              divE.classList.add("come-in");
+              observer.unobserve(divE);
+            }
+          })
+        }
+      }
+    })()
+
+  </script>
+</body>
+
+</html>

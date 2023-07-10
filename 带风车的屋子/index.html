@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background: #292f4c;
+    }
+
+    /* 圆圈窗口容器 */
+    .circle-container {
+      height: 340px;
+      width: 340px;
+      border: 10px solid #3b436d;
+      border-radius: 50%;
+      margin: 10% auto;
+      position: relative;
+      background: linear-gradient(to bottom,
+          #4d4d83 0%,
+          #c76961 246px,
+          #292f4c 0%);
+      overflow: hidden;
+    }
+
+    .moon {
+      position: absolute;
+      height: 112px;
+      width: 112px;
+      background: linear-gradient(to bottom, #ffc673 0%, #ff653c 100%);
+      left: 36px;
+      top: 70px;
+      border-radius: 50%;
+    }
+
+    /* 星星 */
+    .star {
+      background: white;
+      height: 2px;
+      width: 2px;
+      position: absolute;
+      left: 100px;
+      top: 20px;
+      border-radius: 25%;
+      opacity: 0.5;
+    }
+
+    @keyframes starOdd {
+      10% {
+        opacity: 0.3;
+      }
+
+      90% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes starEven {
+      10% {
+        opacity: 0.1;
+      }
+
+      90% {
+        opacity: 0.8;
+      }
+    }
+
+    .star:nth-child(odd) {
+      animation: starOdd 2.5s ease-in infinite;
+    }
+
+    .star:nth-child(even) {
+      animation: starEven 2.5s ease-in infinite;
+    }
+
+    /* 树林 */
+    .trees {
+      bottom: -8px;
+      position: absolute;
+    }
+
+    .tree {
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 48px solid #292f4c;
+      position: absolute;
+      bottom: 80px;
+    }
+
+    /* 房子 */
+    .house {
+      position: absolute;
+      bottom: -10px;
+      left: 122px;
+    }
+
+    .windmill {
+      position: absolute;
+      top: -250px;
+      z-index: 8;
+      left: -42px;
+      animation: rotatemill 10s infinite linear;
+      transform-origin: 89px 24px;
+    }
+
+    @keyframes rotatemill {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .fan-wing {
+      width: 89px;
+      height: 16px;
+      border-bottom: 8px solid #292f4c;
+      position: relative;
+      left: 0;
+      left: 0;
+    }
+
+    .fan-1 {
+      left: 0;
+    }
+
+    .fan-2 {
+      transform: rotate(90deg);
+      transform-origin: 102px 7px;
+    }
+
+    .fan-3 {
+      transform: rotate(180deg);
+      transform-origin: 90px -4px;
+    }
+
+    .fan-4 {
+      transform: rotate(270deg);
+      transform-origin: 52px -17px;
+    }
+
+    .fan-comb {
+      width: 64px;
+      height: inherit;
+      border: 4px solid #292f4c;
+    }
+
+    .fan-comb>div {
+      border-right: 4px solid #292f4c;
+      display: inline;
+      margin-left: 5.4px;
+    }
+
+    .roof {
+      border-left: 48px solid transparent;
+      border-right: 48px solid transparent;
+      border-bottom: 48px solid #292f4c;
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 210px;
+      left: 0px;
+    }
+
+    .floors {
+      height: 110px;
+      width: 74px;
+      background: #292f4c;
+      left: 12px;
+      position: absolute;
+      bottom: 100px;
+    }
+
+    .floors:before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 0px solid transparent;
+      border-bottom: 110px solid #292f4c;
+      left: -11px;
+    }
+
+    .floors:after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 11px solid transparent;
+      border-bottom: 110px solid #292f4c;
+      right: -11px;
+      bottom: 0;
+    }
+
+    .light {
+      height: 12px;
+      width: 12px;
+      background: linear-gradient(to bottom, #ffed60 0%, #ffb73c 100%);
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 30px;
+    }
+
+    .light:before {
+      content: "";
+      height: 36px;
+      width: 12px;
+      background: linear-gradient(to bottom,
+          #ffed6000 0%,
+          #ffb73c 50%,
+          #ffed6000 100%);
+      position: absolute;
+      top: -12px;
+      opacity: 0.3;
+    }
+
+    .light:after {
+      content: "";
+      height: 36px;
+      width: 12px;
+      background: linear-gradient(to bottom,
+          #ffed6000 0%,
+          #ffb73c 50%,
+          #ffed6000 100%);
+      position: absolute;
+      top: -12px;
+      opacity: 0.3;
+      transform: rotate(90deg);
+    }
+
+    .door {
+      height: 32px;
+      width: 24px;
+      background: linear-gradient(to bottom, #ffed60 0%, #ffb73c 100%);
+      border-radius: 12px 12px 0 0;
+      position: absolute;
+      bottom: 0;
+      left: 25px;
+      box-shadow: 0 0px 15px #ffed60;
+    }
+
+    /* 流星 */
+    .shooting-star {
+      transform: rotate(-45deg);
+      margin: 30px;
+      display: block;
+      width: 0;
+      border-radius: 2px;
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: transparent;
+      border-left-width: 130px;
+      border-left-style: solid;
+      border-left-color: white;
+      border-right-width: 130px;
+      border-right-style: solid;
+      border-right-color: transparent;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: white;
+      opacity: 0.7;
+    }
+
+    .animation {
+      animation: fly 8s infinite;
+    }
+
+    @keyframes fly {
+      from {
+        transform: rotate(-45deg) translateX(900px);
+        border-left-width: 130px;
+        border-right-width: 130px;
+      }
+
+      to {
+        transform: rotate(-45deg) translateX(-900px);
+        border-left-width: 160px;
+        border-right-width: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="circle-container">
+    <span class="shooting-star animation"></span>
+    <div id="stars" class="stars"></div>
+    <div class="moon"></div>
+    <div class="trees" id="trees"></div>
+    <div class="house">
+      <div class="windmill" id="windmill"></div>
+      <div class="roof"></div>
+      <div class="floors">
+        <div class="light"></div>
+        <div class="door"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function randomNum(minNum, maxNum) {
+      switch (arguments.length) {
+        case 1:
+          return parseInt(Math.random() * minNum + 1, 10);
+          break;
+        case 2:
+          return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+          break;
+        default:
+          return 0;
+          break;
+      }
+    }
+    let fragment = document.createDocumentFragment();
+    for (let i = 0; i < 30; i++) {
+      let child = document.createElement("div");
+      child.className = "star star-" + (i + 1);
+      child.style = `left:${randomNum(40, 300)}px;top:${randomNum(
+        40,
+        200
+      )}px;`;
+      child.style.setProperty("animation-duration", randomNum(2, 5) + "s");
+      fragment.appendChild(child);
+    }
+    document.getElementById("stars").appendChild(fragment);
+
+    let treePosition = [
+      {
+        left: 22,
+        bottom: 0
+      },
+      {
+        left: 42,
+        bottom: 100
+      },
+      {
+        left: 62,
+        bottom: 90
+      },
+      {
+        left: 74,
+        bottom: 94
+      },
+      {
+        left: 90,
+        bottom: 102
+      },
+      {
+        left: 120,
+        bottom: 0
+      },
+      {
+        left: 140,
+        bottom: 0
+      },
+      {
+        left: 160,
+        bottom: 0
+      },
+      {
+        left: 190,
+        bottom: 0
+      },
+      {
+        left: 205,
+        bottom: 90
+      },
+      {
+        left: 220,
+        bottom: 100
+      },
+      {
+        left: 240,
+        bottom: 90
+      },
+      {
+        left: 260,
+        bottom: 100
+      },
+      {
+        left: 280,
+        bottom: 80
+      }
+    ];
+    let fragmentTree = document.createDocumentFragment();
+    for (let i = 0; i < 14; i++) {
+      let child = document.createElement("div");
+      child.className = "tree tree-" + (i + 1);
+      child.style =
+        `left:${treePosition[i].left}px;` +
+        (treePosition[i].bottom > 0
+          ? `bottom:${treePosition[i].bottom}px;`
+          : "");
+      fragmentTree.appendChild(child);
+    }
+    document.getElementById("trees").appendChild(fragmentTree);
+
+
+    let fragmentFan = document.createDocumentFragment();
+    for (let i = 0; i < 4; i++) {
+      let child = document.createElement("div");
+      child.className = "fan-wing fan-" + (i + 1);
+      let comb = document.createElement("div");
+      comb.className = "fan-comb";
+      for (let j = 0; j < 6; j++) {
+        comb.appendChild(document.createElement("div"));
+      }
+      child.appendChild(comb);
+      fragmentFan.appendChild(child);
+    }
+    document.getElementById("windmill").appendChild(fragmentFan);
+  </script>
+</body>
+
+</html>
