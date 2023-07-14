@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="300"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, 600, 300);
+    var onoff = false;
+    var oldx = -10;
+    var oldy = -10;
+    var linecolor = "white";
+    var linw = 4;
+    canvas.addEventListener("mousemove", draw, true);  //第三个参数主要跟捕获或者冒泡有关
+    canvas.addEventListener("mousedown", down, false);
+    canvas.addEventListener("mouseup", up, false);
+    function down(event) {
+      onoff = true;
+      oldx = event.pageX - 10;
+      oldy = event.pageY - 10;
+    }
+
+    function up() {
+      onoff = false;
+    }
+
+    function draw(event) {
+      if (onoff == true) {
+        var newx = event.pageX - 10;
+        var newy = event.pageY - 10;
+        ctx.beginPath();//beginPath() 丢弃任何当前定义的路径并且开始一条新的路径。它把当前的点设置为 (0,0)。
+        ctx.moveTo(oldx, oldy);   //移动到点击时候的坐标，以那个坐标为原点
+        ctx.lineTo(newx, newy);   //绘制新的路径
+        ctx.strokeStyle = linecolor;
+        ctx.lineWidth = linw;
+        ctx.lineCap = "round";
+        ctx.stroke();//stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色。
+        oldx = newx;
+        oldy = newy;
+      };
+    };
+  </script>
+</body>
+
+</html>

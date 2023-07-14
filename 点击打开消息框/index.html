@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --easing: cubic-bezier(0.33, 1, 0.68, 1);
+      --easing-2: cubic-bezier(0.61, 1, 0.88, 1);
+    }
+
+    input[type="checkbox"]:checked+.box .icon {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E %3Cpath d='M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z'/%3E %3C/svg%3E ");
+    }
+
+    input[type="checkbox"]:checked+.box:after {
+      transform: translateY(-50%) scale3d(8, 6, 1);
+    }
+
+    input[type="checkbox"]:checked+.box .box__item {
+      transform: translateX(0px);
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.5s ease-out;
+      transition-delay: calc(var(--index) * 0.1s);
+      transition-property: transform, opacity;
+    }
+
+    .box {
+      padding: 20px 80px 20px 20px;
+      position: relative;
+
+
+    }
+
+    .box:after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      background: #FFF6DA;
+      transform-origin: 100% 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s var(--easing);
+      z-index: -1;
+    }
+
+    .box__item {
+      visibility: hidden;
+      transform: translateX(20px);
+      opacity: 0;
+      transition:
+        opacity 0.2s var(--easing-2) 0;
+    }
+
+    .toggle {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+    }
+
+    .toggle__checkbox {
+      display: none;
+    }
+
+    .icon {
+      cursor: pointer;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: no-repeat center / 40%;
+
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-clock'%3E %3Ccircle cx='12' cy='12' r='10'/%3E %3Cpath d='M12 6v6l4 2'/%3E %3C/svg%3E ");
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #FBC99D;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2 {
+      margin: 1.75rem 0 1.05rem;
+      line-height: 1.15;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 1.802em;
+    }
+
+    h2 {
+      font-size: 1.302em;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="toggle" class="toggle__checkbox" />
+
+  <aside class="box">
+    <label for="toggle" class="toggle"><i class="icon"></i></label>
+
+    <section>
+      <h1 style="--index:1;" class="box__item">吃饭</h1>
+      <h2 style="--index:2;" class="box__item">上班</h2>
+      <p style="--index:3;" class="box__item">摸鱼</p>
+      <p style="--index:4;" class="box__item">午休</p>
+      <p style="--index:5;" class="box__item">下班</p>
+    </section>
+  </aside>
+</body>
+
+</html>
