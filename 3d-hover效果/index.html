@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *::after,
+    *::before {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: linear-gradient(to bottom, #ad3ef5, #5814a2);
+    }
+
+    .container {
+      padding: 60px;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .parallax {
+      --maxRotate: 15;
+      aspect-ratio: 631/383;
+      perspective: 1200px;
+      max-height: 100%;
+    }
+
+    .parallax img {
+      position: absolute;
+      left: -5%;
+      top: -5%;
+      width: 110%;
+      height: 110%;
+      display: block;
+      transition: 300ms ease-out;
+      transform: translate3d(calc(var(--parallaxOffset) * var(--rotateY) / var(--maxRotate) * 1%),
+          calc(var(--parallaxOffset) * var(--rotateX) / var(--maxRotate) * -1%), 0);
+      pointer-events: none;
+    }
+
+    .parallax-rotator {
+      position: relative;
+      transition: 300ms ease-out;
+      transform: rotateX(calc(var(--rotateX) * 1deg)) rotateY(calc(var(--rotateY) * 1deg));
+    }
+
+    .parallax-inner {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background-color: white;
+    }
+
+    .parallax-shadow {
+      background: #000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(50px);
+      transform: scale(1.05);
+      position: absolute;
+      display: block;
+      z-index: -1;
+    }
+
+    .parallax-highlight {
+      left: -50%;
+      top: -50%;
+      width: 200%;
+      height: 200%;
+      position: absolute;
+      background-image: radial-gradient(circle at 50%, rgba(255, 255, 255, 0.25), transparent 50%);
+      z-index: 100;
+      transform: translate3d(calc(var(--rotateY) / var(--maxRotate) * -25%), calc(var(--rotateX) / var(--maxRotate) * -25%), 0px);
+      transition: 300ms ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="parallax">
+      <div class="parallax-rotator">
+        <div class="parallax-inner">
+          <img src="https://atroposjs.com/images/header/atropos-bg.svg"
+            style="position: relative; left: 0; top: 0; width: 100%; height: 100%; visibility: hidden;" />
+          <img src="https://atroposjs.com/images/header/atropos-bg.svg" style="--parallaxOffset: -4.5" />
+          <img src="https://atroposjs.com/images/header/atropos-mountains.svg" style="--parallaxOffset: -2.5" />
+          <img src="https://atroposjs.com/images/header/atropos-forest-back.svg" style="--parallaxOffset: 0" />
+          <img src="https://atroposjs.com/images/header/atropos-forest-mid.svg" style="--parallaxOffset: 2" />
+          <img src="https://atroposjs.com/images/header/atropos-forest-front.svg" style="--parallaxOffset: 4" />
+          <img src="https://atroposjs.com/images/header/atropos-logo-en.svg" style="--parallaxOffset: 5" />
+          <div class="parallax-highlight"></div>
+        </div>
+        <div class="parallax-shadow"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    document.querySelector('.parallax')?.addEventListener('mousemove', function (e) {
+      const { clientX, clientY } = e
+
+      // 获取 CSS 变量
+      // https://gist.github.com/paulirish/5d52fb081b3570c81e3a#calling-getcomputedstyle
+      const computedStyle = getComputedStyle(this)
+      const maxRotate = computedStyle.getPropertyValue('--maxRotate')
+
+      const { width, height, left, top } = this.getBoundingClientRect();
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const offsetX = clientX - left
+      const offsetY = clientY - top
+
+      // X 方向移动旋转 Y 轴，Y 方向移动旋转 X 轴
+      let rotateX = (maxRotate * (offsetY - centerY)) / (centerY) * -1;
+      let rotateY = (maxRotate * (offsetX - centerX)) / (centerX);
+
+      this.style.setProperty('--rotateX', rotateX);
+      this.style.setProperty('--rotateY', rotateY);
+    })
+
+    document.querySelector('.parallax')?.addEventListener('mouseleave', function (e) {
+      this.style.setProperty('--rotateX', 0);
+      this.style.setProperty('--rotateY', 0);
+    })
+  </script>
+</body>
+
+</html>
