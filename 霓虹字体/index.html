@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100vh;
+      background: #18191f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #box {
+      position: relative;
+      display: flex;
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 80px;
+      width: 80px;
+      z-index: 100;
+    }
+
+    #text {
+      position: absolute;
+      top: 200px;
+      left: 0;
+      right: 0;
+      height: 80px;
+      width: 400px;
+      background: #18191f;
+      color: #555;
+      font-size: 46px;
+      line-height: 80px;
+      text-align: left;
+      cursor: pointer;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 6px rgba(0, 0, 0, 0.2),
+        inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+        inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      position: relative;
+      height: 80px;
+      width: 80px;
+      background: #18191f;
+      color: #555;
+      font-size: 46px;
+      line-height: 80px;
+      text-align: center;
+      cursor: pointer;
+      margin: 0 4px;
+      border-radius: 20px;
+      box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 6px rgba(0, 0, 0, 0.2),
+        inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+        inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+
+    input[type="checkbox"]:checked~div {
+      box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+        inset 4px 4px 6px rgba(0, 0, 0, 0.2);
+      color: yellow;
+      text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+      animation: glow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+  </style>
+
+<body>
+  <input type="text" id="text">
+  <div id="box">
+  </div>
+  <script>
+    let text = 'lbiceman'
+    let input = document.getElementById('text')
+    input.value = text
+    function splitChar() {
+      let arr = text.split('')
+      let str = ''
+      arr.forEach(v => {
+        str += `
+      <div class="child">
+      <input type="checkbox" />
+      <div class="item">${v}</div>
+    </div>
+      `
+      })
+      document.getElementById('box').innerHTML = str
+    }
+    splitChar()
+    input.onchange = function (e) {
+      text = e.target.value
+      splitChar()
+    }
+  </script>
+</body>
+</head>
+
+</html>
