@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --dog-color: white;
+      --dog-accent-color: #333642;
+      --background-color: #25A9FC;
+      --slide-color: #FEDF01;
+      --ladder-color: #0185B5;
+      --heart-color: #E81C23;
+    }
+
+    body {
+      background: var(--background-color);
+    }
+
+    .box-canvas {
+      position: relative;
+      margin: auto;
+      display: block;
+      margin-top: 8%;
+      margin-bottom: 8%;
+      width: 600px;
+      height: 600px;
+    }
+
+    /* Convenience wrapper for easy positioning */
+    .dog {
+      position: absolute;
+      right: 170px;
+      top: 70px;
+      width: 58px;
+      height: 75px;
+      animation: dogSlide 2s infinite ease-in-out;
+    }
+
+    @keyframes dogSlide {
+      10% {
+        transform: translateX(-25px);
+      }
+
+      70% {
+        transform: rotate(-20deg) translate(-185px, 50px);
+      }
+
+      90% {
+        transform: translate(-205px, 125px);
+      }
+
+      100% {
+        transform: translate(-205px, 125px);
+      }
+    }
+
+    .heart {
+      opacity: 0;
+      position: absolute;
+      background: var(--heart-color);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      top: -50px;
+      left: 60%;
+      transform: translateX(-60%);
+      animation: heartAppear 2s infinite ease-in-out;
+    }
+
+    .heart::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      background: var(--heart-color);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .heart::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      background: var(--heart-color);
+      width: 25px;
+      height: 10px;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    @keyframes heartAppear {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      70% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .body {
+      position: absolute;
+      left: 13px;
+      width: 44px;
+      height: 75px;
+      border-radius: 25% 10% 20% 20%;
+      background: var(--dog-color);
+    }
+
+    .body::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: -3px;
+      background: var(--dog-color);
+      border-radius: 20%;
+      width: 20px;
+      height: 30px;
+      transform: rotate(45deg);
+    }
+
+    /* Snout section */
+    .body::after {
+      content: '';
+      position: absolute;
+      background: var(--dog-color);
+      width: 25px;
+      height: 15px;
+      top: 20px;
+      left: -12px;
+      border-radius: 20% 20% 50% 20%;
+      border-bottom: 2px solid var(--dog-accent-color);
+      animation: dogSmile 2s infinite ease-in-out;
+    }
+
+    @keyframes dogSmile {
+      0% {
+        border-radius: 20% 20% 20% 20%;
+        border-bottom: none;
+      }
+
+      70% {
+        border-radius: 20% 20% 50% 20%;
+        border-bottom: 2px solid var(--dog-accent-color);
+      }
+    }
+
+    .nose {
+      position: absolute;
+      background-color: var(--dog-accent-color);
+      width: 8px;
+      height: 5px;
+      border-radius: 30%;
+      top: 20px;
+    }
+
+    .ear {
+      position: absolute;
+      left: 35px;
+      width: 20px;
+      height: 30px;
+      background: var(--dog-accent-color);
+      border-radius: 0 0 30% 30%;
+    }
+
+    .eye {
+      position: absolute;
+      left: 22px;
+      top: 10px;
+      background: var(--dog-accent-color);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .tail {
+      position: absolute;
+      bottom: 0;
+      right: -8px;
+      width: 10px;
+      height: 55px;
+      background: var(--dog-color);
+      transform: rotate(25deg);
+
+    }
+
+    .tail::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      width: 15px;
+      height: 25px;
+      background: var(--dog-color);
+      clip-path: polygon(12% 0, 0% 100%, 100% 100%);
+    }
+
+    .tail::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 12px;
+      height: 25px;
+      background: var(--dog-color);
+      clip-path: polygon(12% 0, 0% 100%, 100% 100%);
+    }
+
+    /* Convenience wrapper for positioning */
+    .slide {
+      position: absolute;
+      width: 270px;
+      height: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100px;
+    }
+
+    .slide-main {
+      position: absolute;
+      bottom: 64px;
+      left: 53px;
+      width: 200px;
+      height: 50px;
+      background: var(--slide-color);
+      transform: rotate(-45deg);
+    }
+
+    .slide-end {
+      position: absolute;
+      height: 50px;
+      width: 100px;
+      background: var(--slide-color);
+      bottom: 0;
+      border-radius: 50% 0 0 0;
+    }
+
+    .slide-start {
+      position: absolute;
+      height: 50px;
+      top: 23px;
+      width: 63px;
+      background: var(--slide-color);
+      right: 0px;
+    }
+
+    /* Ladder */
+    .slide-start::after {
+      content: '';
+      position: absolute;
+      height: 177px;
+      width: 10px;
+      background: var(--ladder-color);
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box-canvas">
+    <div class="dog">
+      <div class="heart"></div>
+      <div class="body"></div>
+      <div class="nose"></div>
+      <div class="ear"></div>
+      <div class="eye"></div>
+      <div class="tail"></div>
+    </div>
+    <div class="slide">
+      <div class="slide-end"></div>
+      <div class="slide-main"></div>
+      <div class="slide-start"></div>
+
+    </div>
+  </div>
+</body>
+
+
+</html>

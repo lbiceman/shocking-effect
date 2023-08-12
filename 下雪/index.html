@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      display: block;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 获取canvas元素和绘图上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 设置canvas大小
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // 定义雪花对象
+    function Snowflake(x, y, radius, speed) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.speed = speed;
+      this.angle = Math.random() * Math.PI * 2;
+    }
+
+    // 定义雪花数组
+    var snowflakes = [];
+
+    // 添加雪花到数组中
+    for (var i = 0; i < 400; i++) {
+      var x = Math.random() * canvas.width;
+      var y = Math.random() * canvas.height;
+      var radius = Math.random() * 3 + 1;
+      var speed = Math.random() * 2 + 1;
+      snowflakes.push(new Snowflake(x, y, radius, speed));
+    }
+
+    // 绘制雪花
+    function drawSnowflake(snowflake) {
+      ctx.beginPath();
+      ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    // 更新雪花位置
+    function updateSnowflake(snowflake) {
+      snowflake.x += Math.cos(snowflake.angle) * snowflake.speed;
+      snowflake.y += snowflake.speed
+
+      if (snowflake.x > canvas.width + snowflake.radius) {
+        snowflake.x = -snowflake.radius;
+      }
+      if (snowflake.x < -snowflake.radius) {
+        snowflake.x = canvas.width + snowflake.radius;
+      }
+      if (snowflake.y > canvas.height + snowflake.radius) {
+        snowflake.y = -snowflake.radius;
+      }
+    }
+
+    // 清空画布和绘制雪花
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < snowflakes.length; i++) {
+        drawSnowflake(snowflakes[i]);
+      }
+    }
+
+    // 更新雪花位置并重新绘制
+    function update() {
+      for (var i = 0; i < snowflakes.length; i++) {
+        updateSnowflake(snowflakes[i]);
+      }
+      draw();
+    }
+
+    // 每隔30毫秒更新一次
+    setInterval(update, 30);
+  </script>
+</body>
+
+</html>
