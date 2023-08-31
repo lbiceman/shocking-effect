@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    class Star {
+      constructor() {
+        /** @type {HTMLCanvasElement} */
+        this.canvas = document.getElementById('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.width = innerWidth;
+        this.canvas.height = innerHeight;
+        this.points = [];
+        this.radius1 = 100;
+        this.radius2 = 50;
+        this.particles = [];  // 粒子数组，用于星星爆炸
+
+        this.init();
+      }
+
+      init() {
+        this.initStar();
+        this.animate();
+        //  this.drawStar();
+      }
+
+      initStar() {
+        // 创建五角星的五个顶点
+        for (let i = 0; i < 5; i++) {
+          // 外层五角星坐标
+          let deg = -90 + i * 72;
+          let x1 = this.radius1 * Math.cos(deg * Math.PI / 180) + this.canvas.width / 2;
+          let y1 = this.radius1 * Math.sin(deg * Math.PI / 180) + this.canvas.height / 2;
+          this.points.push([x1, y1]);
+          // 旋转36度，生成内顶角坐标
+          deg = deg + 36;
+          let x2 = this.radius2 * Math.cos(deg * Math.PI / 180) + this.canvas.width / 2;
+          let y2 = this.radius2 * Math.sin(deg * Math.PI / 180) + this.canvas.height / 2;
+          this.points.push([x2, y2]);
+        }
+      }
+
+      drawStar() {
+        // 拖尾效果
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        // 使用 fillRect 创建拖尾效果
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        // 清理画布
+        // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // 创建粒子数据
+        // 如果当前粒子数组中的粒子数量少于800，则添加100个
+        if (this.particles.length < 800) {
+          for (let i = 0; i < 100; i++) {
+            // 随机生成一个从0到10的值
+            let s = Math.random() * 10 | 0;
+            // 根据上面生成的随机值，随机选择一个顶点
+            let p1 = this.points[s];
+            // 选择跟前一个顶点相邻的顶点，如果选择的这个顶点是最后一个，则下一个顶点是第一个
+            let p2 = this.points[(s + 1) % 10];
+            // 随机获取当前这条线的x轴的值
+            let px = Math.random() * (p2[0] - p1[0]) + p1[0];
+            // 获取这条线与x轴相交的坐标
+            let py = (px - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
+            this.particles.push(new Particle(px, py, this.canvas, this.ctx));
+          }
+
+          // 每次生成粒子时重绘一次五角星
+          this.ctx.beginPath();
+          // 连接生成的五角星顶点
+          for (let i in this.points) {
+            // 遍历各个顶点坐标，然后绘制出来
+            let p = this.points[i];
+            this.ctx.lineTo(p[0], p[1]);
+          }
+          this.ctx.closePath();
+          this.ctx.fillStyle = `hsl(${Math.random() * 360}, 80%, 60%)`;
+          this.ctx.fill();
+        }
+
+        // 渲染粒子效果
+        for (let i in this.particles) {
+          let p = this.particles[i];
+          p.update();
+          p.draw();
+          if (p.age < 0) {
+            this.particles.splice(i, 1);
+          }
+        }
+      }
+
+      // 动画效果
+      animate() {
+        requestAnimationFrame(() => this.animate());
+        this.drawStar();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, canvas, ctx) {
+        // 创建粒子角度
+        this.deg = Math.atan2((y - canvas.height / 2), (x - canvas.width / 2));
+        // 粒子与原点之间的角度和距离
+        this.radius = Math.sqrt(Math.pow((y - canvas.height / 2), 2) + Math.pow((x - canvas.width / 2), 2));
+        this.age = Math.random() * canvas.width / 2;
+        this.color = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        this.canvas = canvas;
+        this.ctx = ctx;
+      }
+
+      draw() {
+        let x1 = this.radius * Math.cos(this.deg) + this.canvas.width / 2;
+        let y1 = this.radius * Math.sin(this.deg) + this.canvas.height / 2;
+        this.ctx.fillStyle = this.color;
+        this.ctx.beginPath();
+        this.ctx.arc(x1, y1, 2, 0, Math.PI * 2, 0);
+        this.ctx.fill();
+      }
+
+      update() {
+        this.radius += 2;
+        this.age--;
+      }
+    }
+
+    new Star();
+  </script>
+</body>
+
+</html>
