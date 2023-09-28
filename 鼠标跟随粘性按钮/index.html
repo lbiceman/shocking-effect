@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跟随按钮</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #222;
+
+      display: flex;
+      gap: 50px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      position: relative;
+
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 15px 20px;
+      background-color: #333;
+      border-radius: 40px;
+
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: .1em;
+
+      transition: transform .1s;
+      overflow: hidden;
+    }
+
+    .btn span {
+      position: relative;
+      pointer-events: none;
+      color: rgba(255, 255, 255, .25);
+      transition: color .5s;
+    }
+
+    .btn:hover span {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: var(--y);
+      left: var(--x);
+      transform: translate(-50%, -50%);
+      background-color: var(--clr);
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transition: 1s, left 0s, top 0s;
+    }
+
+    .btn:hover::before {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#" class="btn" style="--clr: #ff6464">
+    <span>
+      Magnetic
+    </span>
+  </a>
+
+  <a href="#" class="btn" style="--clr: #29aeef">
+    <span>
+      Button
+    </span>
+  </a>
+
+  <script>
+    const btns = document.querySelectorAll(".btn");
+
+    btns.forEach(btnEle => {
+      btnEle.addEventListener("mousemove", e => {
+        const x = e.offsetX,
+          y = e.offsetY;
+        btnWidth = btnEle.clientWidth,
+          btnHeight = btnEle.clientHeight,
+          transX = x - btnWidth / 2,
+          transY = y - btnHeight / 2;
+        btnEle.style.transform = `translateX(${transX}px) translateY(${transY}px)`;
+
+        const mx = e.pageX - btnEle.offsetLeft,
+          my = e.pageY - btnEle.offsetTop;
+
+        btnEle.style.setProperty("--x", mx + "px");
+        btnEle.style.setProperty("--y", my + "px");
+      });
+
+      btnEle.addEventListener("mouseout", () => {
+        btnEle.style.transform = "";
+      })
+    })
+  </script>
+</body>
+
+</html>
