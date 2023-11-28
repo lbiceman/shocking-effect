@@ -1,5 +1,4 @@
 # shocking-css
-### 网站开发动效
-
+### CSS | JS 特效
 
 
